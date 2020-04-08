@@ -2,6 +2,7 @@ package com.example.instagramclone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         btnSignUp.setOnClickListener(this);
         btnLoginActivity = findViewById(R.id.btnLoginActiviy);
         btnLoginActivity.setOnClickListener(this);
+
+        if(ParseUser.getCurrentUser()!=null){
+            ParseUser.getCurrentUser().logOut();
+        }
     }
 
     @Override
@@ -38,12 +43,16 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 final ParseUser appUser = new ParseUser();
                 appUser.setUsername(edtSignUpUsername.getText().toString());
                 appUser.setPassword(edtSignUpPassword.getText().toString());
+                final ProgressDialog pdSignup = new ProgressDialog(this);
+                pdSignup.setMessage("Sign up!");
+                pdSignup.show();
                 appUser.signUpInBackground(new SignUpCallback() {
                     @Override
                     public void done(ParseException e) {
                         if (e == null){
                             FancyToast.makeText(getApplicationContext(),appUser.getUsername()+ " is successfully signed up!",
                                     Toast.LENGTH_SHORT,FancyToast.SUCCESS,false).show();
+                            pdSignup.dismiss();
                         }else{
                             FancyToast.makeText(getApplicationContext(),e.getMessage()+ "",
                                     Toast.LENGTH_SHORT,FancyToast.SUCCESS,false).show();
