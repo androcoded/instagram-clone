@@ -1,4 +1,4 @@
-package com.example.instagramclone;
+package com.example.instagramclone.ParseServer;
 
 import android.app.Application;
 
@@ -9,8 +9,8 @@ public class App extends Application {
         super.onCreate();
 
         Parse.initialize(new Parse.Configuration.Builder(this)
-                .applicationId("kPGJVXsBVFFacWpCZnjH3OvTSxjwwcjtqecTsTvX")
-                .clientKey("E3rX80oPHG7neEB5YK7ZvFftMPtd6dyisIGfvWZW")
+                .applicationId("IWfetQhYvlmWTyVH7lZ7YEkvA7MUhwlK8E0k0VRf")
+                .clientKey("JsCW8kD5ftSHz3YltaxJ6i4OTWOdvQj8LmWpClca")
                 .server("https://parseapi.back4app.com")
                 .build()
         );
