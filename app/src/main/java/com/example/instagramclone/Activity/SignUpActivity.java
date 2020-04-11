@@ -34,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         btnLoginActivity = findViewById(R.id.btnLoginActiviy);
         btnLoginActivity.setOnClickListener(this);
         if (ParseUser.getCurrentUser() != null) {
-            socialMediaActivity();
+            ParseUser.getCurrentUser().logOut();
         }
         pdSignUp = new ProgressDialog(this);
     }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -34,7 +35,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         btnSignUpActivity = findViewById(R.id.btnSignUpActivity);
         btnSignUpActivity.setOnClickListener(this);
         if (ParseUser.getCurrentUser() != null) {
-            socialMediaActivity();
+            ParseUser.logOut();
         }
         pdLogin = new ProgressDialog(this);
     }
