@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -35,7 +34,8 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         btnSignUpActivity = findViewById(R.id.btnSignUpActivity);
         btnSignUpActivity.setOnClickListener(this);
         if (ParseUser.getCurrentUser() != null) {
-            ParseUser.logOut();
+            socialMediaActivity();
+            finish();
         }
         pdLogin = new ProgressDialog(this);
     }
@@ -59,6 +59,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
 
                                 Intent intentWelcomeActivity = new Intent(getApplicationContext(), SocialMediaActivity.class);
                                 startActivity(intentWelcomeActivity);
+                                finish();
                             } else {
                                 FancyToast.makeText(getApplicationContext(), e.getMessage() + "",
                                         Toast.LENGTH_SHORT, FancyToast.ERROR, false).show();
@@ -83,5 +84,6 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     private void socialMediaActivity(){
         Intent intent = new Intent(this, SocialMediaActivity.class);
         startActivity(intent);
+        finish();
     }
 }

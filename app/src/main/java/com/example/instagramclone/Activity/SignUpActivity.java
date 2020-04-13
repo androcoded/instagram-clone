@@ -35,6 +35,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         btnLoginActivity.setOnClickListener(this);
         if (ParseUser.getCurrentUser() != null) {
             ParseUser.getCurrentUser().logOut();
+
         }
         pdSignUp = new ProgressDialog(this);
     }
@@ -82,5 +83,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private void socialMediaActivity(){
         Intent intent = new Intent(this, SocialMediaActivity.class);
         startActivity(intent);
+        finish();
     }
 }

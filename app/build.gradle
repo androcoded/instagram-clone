@@ -38,6 +38,7 @@ dependencies {
     implementation "com.github.parse-community.Parse-SDK-Android:parse:1.23.1"
     implementation 'com.github.Shashank02051997:FancyToast-Android:0.1.6'
     implementation 'com.google.android.material:material:1.2.0-alpha05'
+    implementation 'gun0912.ted:tedpermission:2.2.3'
 }
 allprojects {
     repositories {
